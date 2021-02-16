@@ -5,8 +5,7 @@ using System.Text;
 
 namespace DateAccess.Abstract
 {
-    public interface ICarDal : IEntityRepository<Car>
+    public interface IBrandDal:IEntityRepository<Brand>
     {
-    
     }
 }
