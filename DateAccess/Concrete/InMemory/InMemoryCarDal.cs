@@ -1,5 +1,6 @@
 ﻿using DateAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,11 @@ namespace DateAccess.Concrete.InMemory
         public List<Car> GetAllByBrandID(int brandID)//markaya göre filitreleme
         {
             return _cars.Where(p => p.BranId == brandID).ToList();
+        }
+
+        public List<CarDetailDto> GetCarDetail()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Car car)

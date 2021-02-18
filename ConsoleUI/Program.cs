@@ -14,10 +14,14 @@ namespace ConsoleUI
             Car carB = new Car { Id = 7, BranId = 6, ColorId = 2, DailyPrice = 11, Description = "Reno Clio 2013" };
 
             CarManeger carManeger = new CarManeger(new EfCarDal());
-            foreach (var item in carManeger.GetAll())
-            {
-                Console.WriteLine(item);
-            }
+            
+            //foreach (var item in carManeger.GetCarDetail())
+            //{
+            //    Console.WriteLine(item.BrandName);
+            //}
+
+
+
         }
     }
 }
