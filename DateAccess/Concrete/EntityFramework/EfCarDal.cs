@@ -15,18 +15,20 @@ namespace DateAccess.Concrete.EntityFramework
     {
         public List<CarDetailDto> GetCarDetail()
         {
-            using (RentaCarContex context=new RentaCarContex())
+            using (RentaCarContex context = new RentaCarContex())
             {
-                var result = from c in context.Cars
-                             join b in context.Brands
-                             on c.Id equals b.Id
-                             join co in context.Colors
-                             on c.ColorId equals co.Id
+                var result = from car in context.Cars
+                             join brand in context.Brands
+                             on car.BranId equals brand.Id
+                             join color in context.Colors
+                             on car.ColorId equals color.Id
                              select new CarDetailDto
                              {
-                                 CarId = c.Id,
-                                 BrandName = b.BrandName,
-                                 ColorName = co.ColorName
+                                 CarId = car.Id,
+                                 BrandName = brand.BrandName,
+                                 ColorName = color.ColorName,
+                                 DailyPrice = car.DailyPrice,
+                               
                              };
 
                 return result.ToList();

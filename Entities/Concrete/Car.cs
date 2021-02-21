@@ -10,7 +10,6 @@ namespace Entities.Concrete
         public int Id { get; set; }
         public int BranId { get; set; }
         public int ColorId { get; set; }
-        public string CarName { get; set; }
         public int DailyPrice { get; set; }//günlük fiyat
         public string Description { get; set; }//açıklama
      

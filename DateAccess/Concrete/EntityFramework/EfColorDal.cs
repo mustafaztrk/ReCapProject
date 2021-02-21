@@ -10,8 +10,8 @@ using System.Text;
 
 namespace DateAccess.Concrete.EntityFramework
 {
-    class EfColorDal :EfEntityRepositoryBase<Color,RentaCarContex>, IColorDal
+    public class EfColorDal : EfEntityRepositoryBase<Color, RentaCarContex>, IColorDal
     {
-      
+
     }
 }

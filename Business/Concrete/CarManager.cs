@@ -8,10 +8,10 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class CarManeger : ICarService
+    public class CarManager : ICarService
     {
         ICarDal _carDal;
-        public CarManeger(ICarDal carDal)
+        public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
         }
@@ -23,7 +23,10 @@ namespace Business.Concrete
             if (car.DailyPrice>0&&car.Description.Length>=2)
             {
                 _carDal.Add(car);
-                Console.WriteLine("ok");
+            }
+            else
+            {
+                Console.WriteLine("Günlük ücret 0'dan büyük olmalı ve Araba ismi en az iki karakterden oluşmalıdır !");
             }
         }
 
@@ -33,7 +36,15 @@ namespace Business.Concrete
         }
         public void Update(Car car)
         {
-            _carDal.Update(car);
+            if (car.Description.Length >= 2 && car.DailyPrice > 0)
+            {
+                _carDal.Update(car);
+                Console.WriteLine("Araba güncellendi");
+            }
+            else
+            {
+                Console.WriteLine("Günlük ücret 0'dan büyük olmalı ve Araba ismi en az iki karakterden oluşmalıdır !");
+            }
         }
         public List<Car> GetAll()
         {

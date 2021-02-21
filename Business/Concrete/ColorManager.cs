@@ -7,10 +7,14 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    class ColorManager : IColorService
+    public class ColorManager : IColorService
     {
         IColorDal _colorDal;
 
+        public void Add(Color color)
+        {
+            _colorDal.Add(color);
+        }
         public ColorManager(IColorDal colorDal)
         {
             _colorDal = colorDal;
