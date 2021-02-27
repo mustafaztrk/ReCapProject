@@ -11,8 +11,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
 
-            Car sil = new Car() { Id = 1, ColorId = 2, DailyPrice = 9800, Description = "Premium araç" ,BranId=1};
-            AracSil(sil);
+            CarDetailTest();
 
         }
         private static void AraçEkle(Car car)
@@ -31,10 +30,11 @@ namespace ConsoleUI
         private static void CarDetailTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-
-            foreach (var car in carManager.GetCarDetail())
+            var result = carManager.GetCarDetail();
+            foreach (var car in result.Data)
             {
                 Console.WriteLine("{0}, {1}, {2}, {3}", car.CarId, car.BrandName, car.ColorName, car.DailyPrice);
+                Console.WriteLine(result.Message);
             }
         }
 
@@ -58,21 +58,21 @@ namespace ConsoleUI
             }
         }
 
-        private static void CarTest()
-        {
-            CarManager carManager = new CarManager(new EfCarDal());
+        //private static void CarTest()
+        //{
+        //    CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetAllByBrandId(1))
-            {
-                Console.WriteLine(car.Description);
-            }
+        //    foreach (var car in carManager.GetAllByBrandId(1))
+        //    {
+        //        Console.WriteLine(car.Description);
+        //    }
 
-            Console.WriteLine("-------------------------------------");
+        //    Console.WriteLine("-------------------------------------");
 
-            foreach (var car in carManager.GetAllByColorId(1))
-            {
-                Console.WriteLine(car.Description);
-            }
-        }
+        //    foreach (var car in carManager.GetAllByColorId(1))
+        //    {
+        //        Console.WriteLine(car.Description);
+        //    }
+        //}
     }
 }
